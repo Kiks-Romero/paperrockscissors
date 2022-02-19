@@ -6,26 +6,12 @@ import {
   faHandPaper,
   faHandLizard,
   faHandSpock,
+  faRobot,
 } from "@fortawesome/free-solid-svg-icons";
-import DesktopMacIcon from "@material-ui/icons/DesktopMac";
 import { useState, useEffect } from "react";
 import Logic from "./Logic";
 import Button from "@material-ui/core/Button";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-  },
-  container: {
-    display: "flex",
-    justifyContent: "spaceBetween",
-    padding: "10px",
-  },
-}));
+import "./Tablero.css";
 
 const hands = [
   {
@@ -51,7 +37,6 @@ const hands = [
 ];
 
 const FiveHands = () => {
-  const classes = useStyles();
   const [user, setUser] = useState("");
   const [score, setScore] = useState("");
   const [icon, setIcon] = useState("");
@@ -73,15 +58,15 @@ const FiveHands = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h2" className={classes.paper}>
+    <div className="root">
+      <Typography variant="h2" className="paper">
         Five Hands
       </Typography>
-      <Grid container>
-        <Grid item xs={4} className={classes.paper}>
+      <Grid container display="flex">
+        <Grid item xs={4} className="paper">
           {user ? (
-            <Grid item xs>
-              <FontAwesomeIcon icon={icon} />
+            <Grid item>
+              <FontAwesomeIcon icon={icon} size="4x" />
               <Button
                 variant="contained"
                 color="primary"
@@ -93,18 +78,21 @@ const FiveHands = () => {
           ) : (
             hands.map(({ name, id }) => {
               return (
-                <Grid item xs key={id}>
-                  <FontAwesomeIcon
-                    icon={name}
-                    onClick={() => setUser(id) & setIcon(name)}
-                  />
+                <Grid item key={id}>
+                  <div className="icon">
+                    <FontAwesomeIcon
+                      icon={name}
+                      size="4x"
+                      onClick={() => setUser(id) & setIcon(name)}
+                    />
+                  </div>
                 </Grid>
               );
             })
           )}
         </Grid>
         <Grid item xs={4}>
-          <Typography variant="h1" className={classes.paper}>
+          <Typography variant="h1" className="paper">
             VS
           </Typography>
         </Grid>
@@ -112,18 +100,18 @@ const FiveHands = () => {
           {user !== "" ? (
             <Logic user={user} game={5} actualscore={actualscore} />
           ) : (
-            <div className={classes.paper}>
-              <DesktopMacIcon />
+            <div className="icon">
+              <FontAwesomeIcon icon={faRobot} size="8x" />
             </div>
           )}
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h2" className={classes.paper}>
+          <Typography variant="h2" className="paper">
             {score}
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h2" className={classes.paper}>
+          <Typography variant="h2" className="paper">
             {you} - {pc}
           </Typography>
         </Grid>

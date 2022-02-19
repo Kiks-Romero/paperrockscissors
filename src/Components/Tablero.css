@@ -1,0 +1,24 @@
+/* .root {
+  flex: grow 1;
+} */
+.paper {
+  padding: 16px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.icon {
+  background: #214864;
+  color: aqua;
+  display: inline-block;
+  margin: 10px;
+  padding: 8px;
+  flex-direction: row;
+}

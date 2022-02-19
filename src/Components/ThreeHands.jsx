@@ -5,8 +5,8 @@ import {
   faHandRock,
   faHandScissors,
   faHandPaper,
+  faRobot,
 } from "@fortawesome/free-solid-svg-icons";
-import DesktopMacIcon from "@material-ui/icons/DesktopMac";
 import { useState, useEffect } from "react";
 import Logic from "./Logic";
 const useStyles = makeStyles((theme) => ({
@@ -72,7 +72,7 @@ const ThreeHands = () => {
         <Grid item xs={4} className={classes.paper}>
           {user ? (
             <Grid item xs>
-              <FontAwesomeIcon icon={icon} />
+              <FontAwesomeIcon icon={icon} size="4x" />
               <Button
                 variant="contained"
                 color="primary"
@@ -87,6 +87,7 @@ const ThreeHands = () => {
                 <Grid item xs key={id}>
                   <FontAwesomeIcon
                     icon={name}
+                    size="4x"
                     onClick={() => setUser(id) & setIcon(name)}
                   />
                 </Grid>
@@ -104,7 +105,7 @@ const ThreeHands = () => {
             <Logic user={user} game={3} actualscore={actualscore} />
           ) : (
             <div className={classes.paper}>
-              <DesktopMacIcon />
+              <FontAwesomeIcon icon={faRobot} size="8x" />
             </div>
           )}
         </Grid>

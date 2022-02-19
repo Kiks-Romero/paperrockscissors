@@ -48,7 +48,6 @@ const Games = () => {
           </Button>
         </Toolbar>
       </AppBar>
-      <hr />
       <Outlet />
     </div>
   );
