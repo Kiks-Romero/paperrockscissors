@@ -1,6 +1,4 @@
-import { Grid, makeStyles, Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "@material-ui/core/Button";
 import {
   faHandRock,
   faHandScissors,
@@ -9,22 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import Logic from "./Logic";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-  },
-  container: {
-    display: "flex",
-    justifyContent: "spaceBetween",
-    padding: "10px",
-  },
-}));
-// let you = 0,
-//   pc = 0;
 
 const hands = [
   {
@@ -42,7 +24,6 @@ const hands = [
 ];
 
 const ThreeHands = () => {
-  const classes = useStyles();
   const [user, setUser] = useState("");
   const [score, setScore] = useState("");
   const [icon, setIcon] = useState("");
@@ -64,62 +45,41 @@ const ThreeHands = () => {
   }, []);
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h2" className={classes.paper}>
-        Three Hands
-      </Typography>
-      <Grid container>
-        <Grid item xs={4} className={classes.paper}>
-          {user ? (
-            <Grid item xs>
-              <FontAwesomeIcon icon={icon} size="4x" />
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => setUser("")}
-              >
-                Again
-              </Button>
-            </Grid>
-          ) : (
-            hands.map(({ name, id }) => {
-              return (
-                <Grid item xs key={id}>
-                  <FontAwesomeIcon
-                    icon={name}
-                    size="4x"
-                    onClick={() => setUser(id) & setIcon(name)}
-                  />
-                </Grid>
-              );
-            })
-          )}
-        </Grid>
-        <Grid item xs={4}>
-          <Typography variant="h1" className={classes.paper}>
-            VS
-          </Typography>
-        </Grid>
-        <Grid item xs={4}>
-          {user !== "" ? (
-            <Logic user={user} game={3} actualscore={actualscore} />
-          ) : (
-            <div className={classes.paper}>
-              <FontAwesomeIcon icon={faRobot} size="8x" />
-            </div>
-          )}
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h2" className={classes.paper}>
-            {score}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h2" className={classes.paper}>
-            {you} - {pc}
-          </Typography>
-        </Grid>
-      </Grid>
+    <div className="root">
+      <h2 className="paper">Three Hands</h2>
+      <div className="container">
+        {user ? (
+          <div className="yourselect" onClick={() => setUser("")}>
+            <FontAwesomeIcon icon={icon} size="4x" className="yourhand" />
+            <div className="button">Again</div>
+          </div>
+        ) : (
+          hands.map(({ name, id }) => {
+            return (
+              <FontAwesomeIcon
+                icon={name}
+                size="4x"
+                onClick={() => setUser(id) & setIcon(name)}
+                className="selection"
+              />
+            );
+          })
+        )}
+      </div>
+      <div className="score">
+        <p>VS</p>
+        {score ? <p>{score}</p> : <p>Chose one hand</p>}
+        <p>
+          {you}-{pc}
+        </p>
+      </div>
+      {user !== "" ? (
+        <Logic user={user} game={3} actualscore={actualscore} />
+      ) : (
+        <div className="pc">
+          <FontAwesomeIcon icon={faRobot} size="8x" />
+        </div>
+      )}
     </div>
   );
 };

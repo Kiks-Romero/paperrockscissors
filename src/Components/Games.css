@@ -1,0 +1,37 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #8a2be2;
+  justify-content: space-between;
+}
+
+li {
+  float: left;
+  display: inline;
+  color: #ccc;
+  text-align: center;
+  padding: 4px 6px;
+  border-right: 1px solid #bbb;
+  justify-content: space-around;
+}
+
+.link {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+li p {
+  font-style: italic;
+}
+
+.link:hover {
+  cursor: pointer;
+  color: #000;
+  background-color: #ccc;
+}

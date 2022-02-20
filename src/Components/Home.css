@@ -1,0 +1,35 @@
+.home {
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* .title {
+  display: block;
+  font-size: 25px;
+  padding: 20px;
+  margin: 0;
+  background-color: rgb(40, 33, 138);
+} */
+
+.card {
+  width: 40%;
+  text-decoration: none;
+  background-color: #83e22b;
+  display: inline-block;
+  margin: 20px;
+  color: black;
+}
+
+.cardtitle {
+  font-size: 25px;
+  padding: 20px;
+  margin: 0;
+}
+.cardtext {
+  font-size: 15px;
+  height: 120px;
+}
+.cardmedia {
+  width: 100%;
+}

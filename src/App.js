@@ -6,22 +6,9 @@ import ThreeHands from "./Components/ThreeHands";
 import Games from "./Components/Games";
 import Home from "./Components/Home";
 
-import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-  },
-}));
-
 function App() {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className="root">
       <Router>
         <Routes>
           <Route path="/" element={<Games />}>
