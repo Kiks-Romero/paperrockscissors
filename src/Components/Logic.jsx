@@ -7,27 +7,9 @@ import {
   faHandLizard,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
-// import { makeStyles } from "@material-ui/core";
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   paper: {
-//     padding: theme.spacing(2),
-//     textAlign: "center",
-//   },
-//   container: {
-//     display: "flex",
-//     justifyContent: "spaceBetween",
-//     padding: "10px",
-//   },
-// }));
 
 let cpu;
 const Logic = (props) => {
-  // const classes = useStyles();
-
   const hands = [
     faHandRock,
     faHandPaper,
