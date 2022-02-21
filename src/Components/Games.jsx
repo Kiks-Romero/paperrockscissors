@@ -7,7 +7,7 @@
 //   Typography,
 // } from "@material-ui/core";
 // import HomeIcon from "@material-ui/icons/Home";
-import { Link, Outlet } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
 import "./Games.css";
 
 // const useStyles = makeStyles((theme) => ({
@@ -22,16 +22,19 @@ import "./Games.css";
 //   },
 // }));
 
-const Games = () => {
+const Games = ({ selectpage }) => {
   // const classes = useStyles();
   return (
     <div>
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/" className="link">
+            {/* <Link to="/" className="link">
               Home
-            </Link>
+            </Link> */}
+            <div className="link" onClick={() => selectpage("home")}>
+              Home
+            </div>
           </li>
           <li>
             <p>
@@ -39,18 +42,24 @@ const Games = () => {
             </p>
           </li>
           <li>
-            <Link to="3Hands" className="link right">
+            {/* <Link to="3Hands" className="link right">
               Three Hands
-            </Link>
+            </Link> */}
+            <div className="link" onClick={() => selectpage("three")}>
+              Three Hands
+            </div>
           </li>
           <li>
-            <Link to="5Hands" className="link right">
+            {/* <Link to="5Hands" className="link right">
               Five Hands
-            </Link>
+            </Link> */}
+            <div className="link" onClick={() => selectpage("five")}>
+              Five Hands
+            </div>
           </li>
         </ul>
       </nav>
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 };

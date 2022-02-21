@@ -1,23 +1,25 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import FiveHands from "./Components/FiveHands";
 import ThreeHands from "./Components/ThreeHands";
 import Games from "./Components/Games";
 import Home from "./Components/Home";
+import { useState } from "react";
 
 function App() {
+  const [page, setPage] = useState("home");
+
+  function selectpage(change) {
+    setPage(change);
+  }
+
   return (
     <div className="root">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Games />}>
-            <Route index element={<Home />} />
-            <Route path="5Hands" element={<FiveHands />} />
-            <Route path="3Hands" element={<ThreeHands />} />
-          </Route>
-        </Routes>
-      </Router>
+      <Games selectpage={selectpage} />
+      {page === "home" && <Home selectpage={selectpage} />}
+      {page === "five" && <FiveHands />}
+      {page === "three" && <ThreeHands />}
     </div>
   );
 }

@@ -72,6 +72,7 @@ const FiveHands = () => {
                 size="4x"
                 onClick={() => setUser(id) & setIcon(name)}
                 className="selection"
+                key={id}
               />
             );
           })
